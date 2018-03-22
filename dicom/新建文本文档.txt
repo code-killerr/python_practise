@@ -1,0 +1,3 @@
+Patient中包含了该病人的所有基本资料(姓名，性别，年龄等)和医生指定的检查Study;
+         Study中包含了检查种类(CT，MR，B超)和指定检查的Series;
+         Series中包含检查的技术条件(毫安，FOV，层厚等)和图像IMAGE。
