@@ -20,3 +20,13 @@ all right,nice to see you
 nice to see you too.
 """#如若储存多行字符串可使用"""
 print(s)
+a=1.5e5#科学计数法，e5代表10^5
+print (a)
+print(True+False)#python中True代表1False代表0可进行加减乘除运算，注意首字母大写，除法运算False不可为分母同0不可为分母
+a='56'
+b=int(a)#int(),float()等类型后带括号表示强制转换
+print(b)
+c=(5e19)#表示出5e+19,+表示正19
+print (c)
+print(type(c))#使用type可以查看当前变量类型
+print(isinstance(a,str))#使用isinstance可以比较类型，返回bool类型
