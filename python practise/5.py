@@ -20,3 +20,6 @@ a=mix.pop()#pop方法中无参数表示取出最后一个元素，并在列表�
 print(a,mix)
 b=mix.pop(1)#取出第二个元素并删除
 print(mix)
+print(mix[2:4])#x:y取出列表x-y的元素组成一个列表不包含x
+print(mix[:2])#取出0-2的元素不包含标号为2的元素
+print(mix[2:])#取出编号为2的元素后的所有元素包含第二个元素
