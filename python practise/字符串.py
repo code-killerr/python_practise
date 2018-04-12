@@ -30,3 +30,4 @@ c=(5e19)#表示出5e+19,+表示正19
 print (c)
 print(type(c))#使用type可以查看当前变量类型
 print(isinstance(a,str))#使用isinstance可以比较类型，返回bool类型
+
