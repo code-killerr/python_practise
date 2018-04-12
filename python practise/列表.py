@@ -51,6 +51,18 @@ list3.sort()
 print(list3)
 print(list4)
 print(list5)
+#元组，无法修改元素的列表
+tuple1=(1,"231",23,42)
+print(tuple1)#拷贝操作一致[ : ]
+#tuple1[0]=3#报错，无法修改元素
+temp=1,#逗号代表元组，不加中括号带逗号的为元组
+print(type(temp))
+temp1=()#空元组
+print(type(temp1))
+print(4*(4,),4*(4))#元组的重复
+tuple1=tuple1[:2]+("hello",)+tuple1[2:]#元组元素的添加,举一反三元组的删除及其它操作
+print(tuple1)
+del tuple1#删除元组，不经常用，python具有垃圾回收机制，del多为删除标签作用
 
 
 
