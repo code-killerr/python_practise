@@ -21,4 +21,5 @@ print(str3.isalpha())#判断字符串是否只有字母
 str4="213123"
 print(str4.isdigit())#判断字符串是否只包含数字
 
+
       
