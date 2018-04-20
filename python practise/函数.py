@@ -27,4 +27,24 @@ def test(*a,word):#收集参数与关键字参数混合
     print('参数长度为',len(a))
     print('参数word为',word)
 test(1,2,3,'we',word='hello')#如果关键字参数没有默认值，不使用关键字赋值会报错，所有参数被归纳到元组中，后面参数没有数值
-
+#函数具有返回值，没有返回值的可以称为过程，python只有函数没有过程
+def hello():
+    print("hello world");
+temp = hello()#函数将返回空
+print(temp,type(temp))#函数没有返回值返回空，有返回值返回，所以python没有过程
+def back():
+    return[1,2,3,"hello world"]#python可以使用列表返回多个值
+print(back())
+def back():
+    return 1,2,3,"hello world"#元组打包
+print(back())
+def dis(a,b):
+    answer = a*b#answer为局部变量，函数之外无法打印调用，函数出栈被删除
+    return answer
+answer=dis(float(input('1:')),float(input('2:')))#在函数外创建的变量为全局变量
+print(answer)
+def change():
+    answer = 20
+    print(answer)#在函数中无法修改全局变量，只能引用全局变量，函数中会创建和全局变量名称相等的局部变量进行操作
+change()
+print(answer)
