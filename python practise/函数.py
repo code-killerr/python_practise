@@ -103,3 +103,11 @@ def fun1():
         return x[0]
     return fun2()
 print(fun1())
+def fun1():
+    x = 5
+    def fun2():
+        nonlocal x#使用关键字nonlocal表面不会创建x局部变量，类似global
+        x=2*x
+        return x
+    return fun2()
+print(fun1())
