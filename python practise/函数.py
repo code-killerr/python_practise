@@ -41,10 +41,65 @@ print(back())
 def dis(a,b):
     answer = a*b#answer为局部变量，函数之外无法打印调用，函数出栈被删除
     return answer
-answer=dis(float(input('1:')),float(input('2:')))#在函数外创建的变量为全局变量
-print(answer)
-def change():
-    answer = 20
-    print(answer)#在函数中无法修改全局变量，只能引用全局变量，函数中会创建和全局变量名称相等的局部变量进行操作
-change()
-print(answer)
+#answer=dis(float(input('1:')),float(input('2:')))#在函数外创建的变量为全局变量
+#print(answer)
+#def change():
+#    answer = 20
+#    print(answer)#在函数中无法修改全局变量，只能引用全局变量，函数中会创建和全局变量名称相等的局部变量进行操作
+#change()
+#print(answer)
+count = 5
+def fun():
+    global count#使用global关键字可以使函数引入的全局变量可以改变
+    count = 10
+    print(count)
+fun()
+print(count)
+def fun1():
+    print('fun1被调用')
+    def fun2():
+        print('fun2被调用')
+    fun2()
+fun1()#python支持函数嵌套形成递归
+#fun2()#报错，在函数内定义的函数在函数外无法调用
+def funx(x):
+    def funy(y):
+        return x*y
+    return funy#形成闭包,有参数时添加括号中没有参数时可以不带括号
+i = funx(8)
+print(i,type(i))#当期i为函数funx
+print(i(5))
+print(funx(4)(5))#传两次参数，第一次进入funx()第二次执行funy()，有点需要琢磨一下
+#先开始执行funx函数，进入后开启return funy再次开始调用funy,执行funyreturn x*y
+def fun1():
+    x = 5
+    def fun2():
+        #x=2*x#添加该语句将报错
+        x = 2#如果这样使用将不会报错
+        x=2*x
+        return x#如果直接return x也不会报错
+    return fun2()#注意无参数时候带括号直接可以执行
+print(fun1())#x相当于外部变量，对于fun2相当于全局变量,而函数在不使用global时无法改变外部变量的值，所以报错
+print()
+def fun1():
+    x = 5
+    def fun2():
+        #x=2*x#添加该语句将报错
+        x = 2#如果这样使用将不会报错
+        x=2*x
+        return x#如果直接return x也不会报错
+    y = fun2()
+    return x,y
+print(fun1())
+'''函数fun2中在调用x=时将创建x变量，而在使用 y=2*x或者其它读取x的语句时
+如果前面没有x=相关的语句，将调用全局中x的值，但当改变x值时将在函数内创
+建x变量，覆盖全局中x的值，然而在创建x变量时x值时没有的，所以x=2*x会报
+错，当使用global时并不会解决问题,因为global对应的是全局变量，然而x只
+是fun2的外部变量,而不是全局变量'''
+def fun1():
+    x = [5]
+    def fun2():
+        x[0]=2*x[0]#使用列表不会报错，因为列表为容器类型，不会入栈
+        return x[0]
+    return fun2()
+print(fun1())
