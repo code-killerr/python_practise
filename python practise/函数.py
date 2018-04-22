@@ -70,7 +70,8 @@ i = funx(8)
 print(i,type(i))#当期i为函数funx
 print(i(5))
 print(funx(4)(5))#传两次参数，第一次进入funx()第二次执行funy()，有点需要琢磨一下
-#先开始执行funx函数，进入后开启return funy再次开始调用funy,执行funyreturn x*y
+#先开始执行funx函数，进入后return funy，当前返回funy()所以格式返回的为函数，
+#由于返回了函数,后面仍可以将其当函数调用,执行funy函数中的语句
 def fun1():
     x = 5
     def fun2():
@@ -111,3 +112,20 @@ def fun1():
         return x
     return fun2()
 print(fun1())
+def ds(x):
+    return 2*x+1
+print(ds(5))
+g = lambda x:2*x+1#直接返回一个函数，没有名字，可以给一个名字或者直接调用
+print(g(5))
+print((lambda x,y:x+y)(3,4))#可以有多个参数,可以直接调用
+#filter(),过滤器，filter(function or none,iterable)iterable可迭代数据，
+#若第一个参数为函数，将第二个参数作为函数参数传入，并返回值为true的答案组成列表
+#若第一个参数为none为筛选第二个参数中值为true的值
+print()
+print(list(filter(None,[1,2,3,0,False])))
+def odd(x):
+    return x%2
+print(list(filter(odd,range(10))))#使用filter导出1-10中的奇数
+print(list(filter(lambda x:x%2,range(10))))#结合lambda一行表示
+#map(function,iterable)映射,参数为函数和一个可迭代参数
+print(list(map(lambda x: x*2,range(10))))#map功能为将第二个参数的值依次输入第一个参数的函数中执行，结果形成列表输出
