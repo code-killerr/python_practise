@@ -129,3 +129,21 @@ print(list(filter(odd,range(10))))#使用filter导出1-10中的奇数
 print(list(filter(lambda x:x%2,range(10))))#结合lambda一行表示
 #map(function,iterable)映射,参数为函数和一个可迭代参数
 print(list(map(lambda x: x*2,range(10))))#map功能为将第二个参数的值依次输入第一个参数的函数中执行，结果形成列表输出
+#def recursion():
+#    return recursion#无限循环的递归会报错，python中为了安全默认深度为100
+import sys
+sys.setrecursionlimit(10000)#使用语句可以更改递归深度
+def JieCheng(n):
+    if n==1:
+        return 1
+    else:
+        return n*JieCheng(n-1)
+print("%d 的阶乘为:%d" % (6,JieCheng(6)))
+def fab(n):#使用递归解决斐波那契
+    if n==1 or n==2:
+        return 1
+    else:
+        return fab(n-1)+fab(n-2)
+print()
+print(fab(20))#不过递归效率低下
+    
