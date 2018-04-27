@@ -12,3 +12,36 @@ dict4 = dict(b='hello world',a='hello python')#可以用该方法创建字典,�
 print(dict4)
 dict4['c']='hello'#增加字典中的数据
 print(dict4)
+#dict()为工厂函数，可以认为是一种类型，str(),int(),list(),tuple()都属于工厂函数
+print(dict1.fromkeys((1,2,3)))#fromkeys(s[,v]),v可选，v为生成字典key对应的value，该函数将生成相应的字典
+print(dict1.fromkeys((1,2,3),'hello'))#在后面增加值后可以将其中所有key的value值改为函数中的参数
+print(dict1)#使用fromkeys不会更改原来的字典
+for key in dict1.keys():#.keys将显示字典中的key
+    print(key)#同样.values将显示字典中的value
+for item in dict1.items():#.items会调出字典中的项
+    print(item)
+print(dict1.get('小d','没有啊'))#如果调用get如果输入字典中不存在的key没有第二个参数会返回none,如果有第二个参数将返回第二个参数
+print('小a' in dict1)#使用in或者not in可以查看字典中是否具有某key
+dict1.clear()#清空字典
+print(dict1)
+a = dict2#可以使用dict1={}清空字典但是在内存中不会清空，如果有指向它的变量仍可以查看，但是clear会从内存中清空
+dict2={}
+print(dict2,a)
+dict2=a
+b=a.copy()#copy可以执行弱拷贝，将a的内容拷贝给b
+a.clear()
+print(id(a),id(b),id(dict2))
+print(a,dict2,b)#可以发现使用clear后b的值仍然存在
+print(b)
+print(b.pop(2))#弹出括号中key以及其的value
+print(b)
+print(dict3)
+print(dict3.popitem())#弹出字典最后的项
+print(dict3)
+dict3.setdefault('f')
+print(dict3)
+dict3.setdefault('h',8)
+print(dict3)#setdefault可以在字典中添加项
+print(dict4)
+dict4.update({'c':'hello py'})#可以使用udate更新字典中key对应的值
+print(dict4)
