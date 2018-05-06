@@ -15,6 +15,7 @@ print(f.tell())#表示文件指针位置在第几个数据处
 f.seek(0,0)#f.seek(offset,from)在文件中移动文件指针，从from偏移offset个字节，from中0代表起始位置，1代表当前位置，2代表文件末尾,只有一个参数时参数设置为from
 print(f.read(3))
 print(f.readline())#读取一行
+#f.write("11111")#报错，因为打开方式为只读，无法写入
 f.close()#关闭文件，使用完后关闭完成数据录入
 f = open('2.txt','w')
 f.write('你好啊')#文件写入
