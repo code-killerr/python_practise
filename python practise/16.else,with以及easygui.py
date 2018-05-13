@@ -16,3 +16,4 @@ except OSError as reason:
 #easygui翻译文档http://bbs.fishc.com/thread-46069-1-1.html
 #啥玩意，不用这东西玩了，安装全是冲突，和几乎所有处理excl表的插件都冲突，虽然用起来很方便，还是用pyqt5吧
  #为了装这个删了好多插件了还是冲突，删不下去了，不玩了靠
+ #官网的安装包在文件夹下easygui.zip反正我装不上，显示没有easygui，一脸懵逼
