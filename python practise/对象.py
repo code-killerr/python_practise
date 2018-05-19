@@ -35,3 +35,39 @@ c.Introduction()#name出现默认设置的值
 print(a.name)#python中类中成员默认公有
 #print(a.__password)#类外部调用隐藏变量报错
 print(a._Ball__password)#然而伪私有仍然可以被外部调用，这就有点坑了
+class Parent:
+    def hello(self):
+        print('这里是parent')
+class Parent2:
+    def hello(self):
+        print('这里是parent2')
+class Parent3(Parent2):
+    def hello(self):
+        print('这里是parent3')
+class Child(Parent):
+    pass#类中不使用任何方法
+p = Child()
+p.hello()
+print('\n')
+class Child1(Parent):
+    def hello(self):
+        print('这是Child')
+P = Child1()
+P.hello()#如果子类中具有相同名称方法将覆盖父类中的方法，当然如果用父类定义对象使用的是父类方法
+a = Parent()
+a.hello()
+print('\n')
+class Child2(Parent3):#多重继承
+    def hello(self):
+        Parent.hello(self)#使用未绑定的父类方法来执行覆写的内容
+        super().hello()#可以使用super方法可以不需要使用父类的名字执行覆写内容
+        #研究表明super只会执行父类中的相关方法，无法执行父类的父类中相关方法
+        #在有多个父类方法相同时，优先使用第一个父类的方法
+        #https://rhettinger.wordpress.com/2011/05/26/super-considered-super/有super详细用途
+        print('这是Child')
+b = Child2()
+b.hello()
+print('\n')
+#此方法相当于执行
+Parent2.hello(b)
+
