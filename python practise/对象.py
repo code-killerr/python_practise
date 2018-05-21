@@ -132,3 +132,20 @@ print(AA().__dict__)#这里可以显示自己实例化了自己并调用了构�
 #因为类中方法是静态的，哪怕删除了类,仍然保存在内存中可以调用
 print(AA.__dict__)#这里显示了类中的所有属性
 #理解类对象和实例对象还需要多加练习才能搞明白
+class A:
+    pass
+class B(A):
+    def __init__(self):
+        self.x = 2333
+print(issubclass(B,A))#检测B是否为A的子类
+AAA = A()
+print(isinstance(AAA,(A,B)))#检测AAA是否为A的实例化对象，第二个参数可以写入多个类
+BBB = B()
+print(hasattr(BBB,'x'))#检测对象是否有相关属性
+print(getattr(BBB,'x'))#得到对象相关属性的值
+print(getattr(BBB,'y','404 NOTFOUND'))#第三个参数将在属性不存在时打印
+setattr(BBB,'y','hello')#更改对象中属性的值，如果不存在则创建
+print(getattr(BBB,'y'))
+delattr(BBB,'x')#删除对象中相关属性，如果不存在抛出异常
+print(getattr(BBB,'x','404 NOTFOUND'))
+property()#通过属性设置属性
