@@ -148,4 +148,27 @@ setattr(BBB,'y','hello')#更改对象中属性的值，如果不存在则创建
 print(getattr(BBB,'y'))
 delattr(BBB,'x')#删除对象中相关属性，如果不存在抛出异常
 print(getattr(BBB,'x','404 NOTFOUND'))
-property()#通过属性设置属性
+#property()#通过属性设置属性
+print('\n')
+class D:
+    def __init__(self,size = 10):
+        self.size = size
+    def getSize(self):
+        return self.size
+    def setSize(self,value):
+        self.size = value
+    def delSize(self):
+        del self.size
+    x = property(getSize,setSize,delSize)#property中第一个参数传入的是获取属性的方法,第二个是设置属性的方法，第三个是删除属性的方法
+#在调用c11.x会自动调用第一个参数的方法，调用c11.x = 自动调用第二个参数的方法，del时调用第三个
+#类中具有默认的得到，更改和删除，调用property便可自定义相关方法拓展更多功能
+c11=D()
+print(c11.getSize())
+print(c11.x,c11.size)
+c11.x = 20
+print(c11.getSize(),c11.size,c11.x)
+del c11.x
+try:
+    print(c11.size)
+except AttributeError:
+    print('size已经和x一起凉了')
