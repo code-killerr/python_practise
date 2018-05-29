@@ -20,4 +20,12 @@ c2=c1
 del c1#此处并没有调用del方法
 print('\n,分割一下')
 del c2#析构方法调用的条件是没有指向它的东西
-    
+#__add__(self,other)定义加法运算+__sub__定义减法运算
+class New_int(int):
+    def __add__(self,other):
+        return int.__sub__(self,other)#调用int类中的sub方法执行减操作
+    def __sub__(self,other):
+        return int.__add__(self.other)#调用int类中的add方法执行+操作
+a = New_int(7)
+b = New_int(10)
+print(a+b)#由于错位所以使用+方法实际执行减操作
