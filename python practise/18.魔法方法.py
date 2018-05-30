@@ -25,7 +25,14 @@ class New_int(int):
     def __add__(self,other):
         return int.__sub__(self,other)#调用int类中的sub方法执行减操作
     def __sub__(self,other):
-        return int.__add__(self.other)#调用int类中的add方法执行+操作
+        return int.__add__(self,other)#调用int类中的add方法执行+操作
 a = New_int(7)
 b = New_int(10)
 print(a+b)#由于错位所以使用+方法实际执行减操作
+print(a-b)
+class D(int):
+    def __add__(self,other):
+        return int(self)+int(other)#注意返回类型
+a = D(12)
+b = D(11)
+print(a+b)
