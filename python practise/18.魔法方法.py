@@ -18,7 +18,7 @@ class C():
 c1 = C()
 c2=c1
 del c1#此处并没有调用del方法
-print('\n,分割一下')
+print('----------------------------------------------')
 del c2#析构方法调用的条件是没有指向它的东西
 #__add__(self,other)定义加法运算+__sub__定义减法运算
 class New_int(int):
@@ -36,3 +36,35 @@ class D(int):
 a = D(12)
 b = D(11)
 print(a+b)
+#其它魔法方法
+'''
+__mul__(self,other)定义乘法：*
+__truediv__(self,other)定义真除法:/
+__floordiv__定义整数除法://
+__mod__定义取模:%
+__pow__(self,other[:modulo])定义幂运算时操作
+__divmod__(a,b)把除数和余数的运算结果返回，返回的为(a//b,a%b)酱紫的元组
+pyhthon中魔法方法都可以自己改写
+'''
+'''
+class int(int):
+   def __add__(self,other):
+        return int.__sub__(self,other)
+print(int(5)+int(3))#酱紫乱改的
+'''
+#若a+b 时由a调用__add__方法，但如果__add__a没有__add__方法会让b来调用__radd__方法
+class E(int):
+    def __radd__(self,other):
+        return int.__sub__(self,other)
+a = E(10)
+b = E(7)
+print(a + b)#a拥有__add__方法调用正常的__add__方法
+print(5+b)#5没有__add__方法调用b的不正常的__radd__方法
+class F(int):
+    def __rsub__(self,other):
+        return int.__sub__(self,other)#看起来放的是正常的__sub__方法
+a = F(5)
+print(6-a)#然而答案不正常
+#根据传参，由于是a调用的__rsub__方法，所以self传入a,other自然是6，所以答案会为a-6在写rsub应传参为(other,sub)
+#增量赋值运算，例如+=,-=之类的仍然可以改写,对应方法前加i即可，+=魔法方法为__iadd__
+#一元操作符，__neg__(self)+x,__pos__(self)-x,__abs__(self)~x
