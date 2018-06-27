@@ -68,3 +68,11 @@ print(6-a)#然而答案不正常
 #根据传参，由于是a调用的__rsub__方法，所以self传入a,other自然是6，所以答案会为a-6在写rsub应传参为(other,sub)
 #增量赋值运算，例如+=,-=之类的仍然可以改写,对应方法前加i即可，+=魔法方法为__iadd__
 #一元操作符，__neg__(self)+x,__pos__(self)-x,__abs__(self)~x
+class G():
+    def __str__(self):#str魔法方法表示直接打印对象时返回的东西
+        return "123456"
+    def __repr__(self):#直接调用该类对象时返回
+        return"654321"
+g = G()
+print(g)
+#命令行中输入g会返回654321
