@@ -5,7 +5,7 @@ import re
 data = 'abcde' 
 reg = 'a...e'   #代表匹配其中5个字符长度且开头为a结尾为e的字符串
 out = re.findall(reg,data)  #调用正则表达式中的查找函数
-print(out)  
+print(out)
 #"*"代表匹配0或多次前面出现的字符。所以当前面放.代表匹配多次.如果没有点代表前面匹配0
 reg = 'a.*e'#代表匹配其中以a开头e结尾的字符串
 out = re.findall(reg,data)

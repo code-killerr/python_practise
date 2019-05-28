@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GB2312">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<form action="login" method="post" style="text-align: center">
+    <input type="text" placeholder="用户名" name="u_name">
+    <br>
+{#    图片验证码显示#}
+    <img src="get_verify_img" alt="" id="code">
+    <br>
+    <input type="text" placeholder="验证码" name="verify_code">
+    <br>
+    <input type="submit" value="登录">
+</form>
+</body>
+<script>
+{#    js点击事件#}
+    $("#code").click(function () {
+        console.log("被执行了");
+{#        Math 获取动态的图片#}
+        $(this).attr("src", "get_verify_img" + Math.random());
+    })
+</script>
+</html>
