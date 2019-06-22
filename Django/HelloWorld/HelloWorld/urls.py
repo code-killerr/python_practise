@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from . import get_verify_img
 from . import draw
+from . import drawmap
+from . import drawpopu
 urlpatterns = [
     url(r'^check/$', get_verify_img.get_verify_img),
     url(r'^draw/$',draw.drawpicture),
+    url(r'^popu/$',drawpopu.popu),
+    url(r'^map/$',drawmap.printcolor),
+    url(r'^earth/$',drawmap.earth),
     
 ]#路径为根目录正则表达式，执行hello函数
 #path('hello',view.hello),path(route,view,kwargs = None(视图使用的字典类型参数), name = None(反向获取url))
