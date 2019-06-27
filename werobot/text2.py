@@ -2,7 +2,7 @@
 """
 Created on Thu Jun 13 16:21:56 2019
 
-@author: Administrator
+@author: CodeKiller
 """
 
 import werobot
@@ -49,10 +49,11 @@ menu =  {
 #创建自定义菜单
 bacg = client.create_menu(menu_data=menu)
 #提交数据
+response = requests.post(url,bacg)
 @robot.handler
 def music(message):
     return message.scan_result
-response = requests.post(url,bacg)
+
 
 robot.config['HOST'] = '0.0.0.0'
 robot.config['PORT'] = 80
