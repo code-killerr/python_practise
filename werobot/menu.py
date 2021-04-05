@@ -10,8 +10,8 @@ import random
 import requests
 from werobot.replies import ImageReply
 robot = werobot.WeRoBot(token = "23333")
-robot.config["APP_ID"] = "wx8bf6453edd855942"
-robot.config["APP_SECRET"] = "5f99c5a02e77602bc216b904ee6aee4f"
+robot.config["APP_ID"] = ""
+robot.config["APP_SECRET"] = ""
 
 @robot.subscribe
 def subscribe(message):

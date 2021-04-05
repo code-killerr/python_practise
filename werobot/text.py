@@ -11,10 +11,10 @@ from werobot.replies import ImageReply
 from werobot.replies import ArticlesReply
 import re
 import random
-robot = werobot.WeRoBot(token='23333')
+robot = werobot.WeRoBot(token='')
 #没有权限无法使用菜单
-robot.config["APP_ID"] = "wx1b511332da51705d"
-robot.config["APP_SECRET"] = "6b59ee02b4d1e5776f5ba5abe249b2a9"
+robot.config["APP_ID"] = ""
+robot.config["APP_SECRET"] = ""
 
 client = robot.client
 
@@ -30,8 +30,8 @@ client = robot.client
 #def music(message):
 #    return '你点击了“今日歌曲”按钮'
 ###
-#robot.config["APP_ID"]="wx1b511332da51705d"
-#robot.config["APP_SECRET"]="6b59ee02b4d1e5776f5ba5abe249b2a9"
+#robot.config["APP_ID"]=""
+#robot.config["APP_SECRET"]=""
 #上传文件获取media_id,该id只能在media list中或者上传时获取
 #media_id = client.upload_permanent_media("voice",open(r"hsxw.mp3","rb"))
 #print(media_id)

@@ -6,7 +6,7 @@ Created on Sun Jun  9 12:14:52 2019
 """
 #图文类型为news
 from urllib import request
-accessToken = "22_rFvSeeHLfImGtkNVzvHnwaVyeMpPCUbpNVnt2DpmaXKDfHoTpiGhKSbrAJJI51CqEWG6xRcWJgYeJrJzD-NghVMf9eGNfzc6MmR4M2lplt8lnvPtqXyHZ7U3rj1CWEKG-Psfj7nUElcmV71AMZMdAJAWJW"
+accessToken = ""
 mediaType = "news"
 offset=0
 count=1
